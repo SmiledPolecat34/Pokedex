@@ -1,0 +1,9 @@
+Répartition des tâches:
+
+
+Aykiu : Pokedex.js/css - PokemonList.css - App.js 
+
+//css == 
+//js == Quoi faire apparaître dedans, et comment l'intégrer.
+
+SmiledPoledcat34: PokemonList.js - PokemonDetails.js - App.js
