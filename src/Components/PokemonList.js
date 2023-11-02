@@ -27,6 +27,11 @@ const PokemonList = ({ addToPokedex }) => {
     }
   };
 
+  const getPokemonIdFromUrl = (url) => {
+    const parts = url.split('/');
+    return parts[parts.length - 2]; // The ID is the second-to-last part in the URL.
+  };
+
   const handleAddToPokedex = async (pokemonUrl) => {
     const pokemonDetails = await fetchPokemonDetails(pokemonUrl);
     if (pokemonDetails) {
@@ -45,8 +50,8 @@ const PokemonList = ({ addToPokedex }) => {
       <ul>
         {pokemonList.map((pokemon, index) => (
           <li key={index}>
-            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`} alt={pokemon.name} />
-            {pokemon.name} - 
+            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getPokemonIdFromUrl(pokemon.url)}.png`} alt={pokemon.name} />
+            {pokemon.name} (n°{getPokemonIdFromUrl(pokemon.url)}) - 
             <button onClick={async () => {
               const details = await fetchPokemonDetails(pokemon.url);
               handleAddToPokedex(pokemon.url);
