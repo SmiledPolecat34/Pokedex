@@ -1,1 +1,0 @@
-Page du pokemon avec stat et bouton pour naviguer entre les pokemon
