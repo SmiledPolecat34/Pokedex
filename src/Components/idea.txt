@@ -1,0 +1,14 @@
+
+1. Id 
+
+2. types
+
+3. Stats Pokemon sur clic
+
+4. Trier l'affichage des pokemons par liste
+
+5. Barre de recherche par nom
+
+Facultatif : 6. toDo List of capture
+
+
