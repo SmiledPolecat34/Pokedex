@@ -1,0 +1,18 @@
+Répartition des tâches:
+
+
+Aykiu : Pokedex.js/css - PokemonList.css - App.js 
+
+//css == 
+//js == Quoi faire apparaître dedans, et comment l'intégrer.
+        intégration images -> lien trouvé
+
+SmiledPoledcat34: PokemonList.js - PokemonDetails.js - App.js
+
+//js 1: id /types pokemon -> suppression des méthodes
+        intégration images -> lien trouvé
+        Affichage détails -> suppression méthode de base
+
+2:      Comment afficher les détails
+
+3:      //
