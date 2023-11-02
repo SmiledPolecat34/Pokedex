@@ -1,15 +1,51 @@
-body{
-    margin:0;
-    color:white;
-    background:#212C36;
-    font-family: 'Nunito Sans', sans-serif;
-    box-sizing:border-box;
-}
-
-header{
-    padding:20px 40px;
-    background:#2C3844;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Couleur de fond */
+  }
+  
+  .header {
+    background-color: #10244c;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .pokedex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  .pokemon-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+  }
+  
+  .pokemon-image {
+    max-width: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .button {
+    background-color: #ff0000; /* Rouge pour le bouton */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #cc0000; /* Rouge légèrement plus sombre au survol */
+  }
