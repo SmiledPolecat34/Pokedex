@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Css/PokemonList.css';
 
+
 const PokemonList = ({ addToPokedex }) => {
   const [pokemonList, setPokemonList] = useState([]);
   const [nextPage, setNextPage] = useState('https://pokeapi.co/api/v2/pokemon/');
@@ -35,7 +36,7 @@ const PokemonList = ({ addToPokedex }) => {
   const handleAddToPokedex = async (pokemonUrl) => {
     const pokemonDetails = await fetchPokemonDetails(pokemonUrl);
     if (pokemonDetails) {
-      // Récupérez les types du Pokémon
+      
       const types = pokemonDetails.types.map((typeData) => typeData.type.name);
       pokemonDetails.types = types;
 
@@ -58,7 +59,7 @@ const PokemonList = ({ addToPokedex }) => {
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getPokemonIdFromUrl(pokemon.url)}.png`} alt={pokemon.name} />
             {pokemon.name} (n°{getPokemonIdFromUrl(pokemon.url)}) -
             {/* code de la Var du Type du Pokemon */}
-            (type(s)) - 
+            (type(s)) {pokemon.types} - 
             
 
             <button onClick={() => handleAddToPokedex(pokemon.url)}>
