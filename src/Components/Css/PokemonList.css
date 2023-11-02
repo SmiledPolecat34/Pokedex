@@ -1,0 +1,15 @@
+body{
+    margin:0;
+    color:white;
+    background:#212C36;
+    font-family: 'Nunito Sans', sans-serif;
+    box-sizing:border-box;
+}
+
+header{
+    padding:20px 40px;
+    background:#2C3844;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
