@@ -9,9 +9,11 @@ const PokemonList = ({ addToPokedex }) => {
   const [sortOrder, setSortOrder] = useState('asc');
   const [pokemonToShowStats, setPokemonToShowStats] = useState(null);
 
+
   const getPokemonIdFromUrl = (url) => {
     const parts = url.split('/');
     return parts[parts.length - 2];
+    
   };
 
   const handleShowStats = async (pokemonUrl) => {
@@ -100,6 +102,7 @@ const PokemonList = ({ addToPokedex }) => {
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
+        
         <label>
           Trier par :
           <select onChange={(e) => setSortBy(e.target.value)}>

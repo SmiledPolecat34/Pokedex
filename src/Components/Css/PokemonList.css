@@ -1,101 +1,115 @@
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f2f2f2;
-  margin: 0;
-  padding: 0;
+/* Style pour l'en-tête */
+h1 {
+  text-align: center;
+  
 }
 
+/* Style pour la barre de recherche et les options de tri */
+.search-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Style pour les boutons de tri */
+label {
+  margin-left: 10px;
+}
+
+/* Style pour chaque élément de la liste de Pokémon */
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* Style pour chaque élément de la liste */
+p {
+  text-align: center;
+  margin: 10px;
+}
+
+/* Style pour l'image du Pokémon */
+img {
+  width: 100px;
+  height: 100px;
+}
+
+/* Style pour les boutons Ajouter au Pokédex et Voir les statistiques */
+button {
+  margin-top: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Style pour les boutons au survol */
+button:hover {
+  background-color: #45a049;
+}
+
+/* Pokedex.css */
+
+/* Style pour le conteneur principal */
 .container {
-  max-width: 960px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 20px;
 }
 
-h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.search-bar {
+/* Style pour l'en-tête */
+.header{
+  background-color: #ff0000; /* Rouge */
+  padding: 10px 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+}
+
+/* Style pour la barre de recherche */
+.search-bar {
   margin-bottom: 20px;
 }
 
-input[type="text"] {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-right: 10px;
-}
-
-label {
-  margin-right: 10px;
-  font-size: 16px;
-  color: #333;
-}
-
+/* Style pour chaque élément de la liste du Pokédex */
 ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
+}
+
+/* Style pour chaque élément de la liste */
+li {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 
-.pokemon-card {
-  width: calc(33.33% - 20px);
-  margin-bottom: 20px;
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  text-align: center;
-  transition: transform 0.3s ease;
+/* Style pour l'image du Pokémon dans le Pokédex */
+img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
 }
 
-.pokemon-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-.pokemon-image {
-  width: 120px;
-  height: 120px;
-  margin-bottom: 15px;
-}
-
-.button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.button-container button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #4caf50;
+/* Style pour le bouton Libérer */
+button {
+  background-color: #f44336;
   color: white;
   border: none;
-  border-radius: 5px;
-  margin: 0 10px;
+  padding: 5px 10px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.button-container button:hover {
-  background-color: #45a049;
-}
-
-.PokemonStats {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 20px;
-  margin-top: 20px;
+/* Style pour le bouton Libérer au survol */
+button:hover {
+  background-color: #d32f2f;
 }
 
 
