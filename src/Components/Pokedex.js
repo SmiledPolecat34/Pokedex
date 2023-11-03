@@ -1,7 +1,14 @@
 import React from 'react';
 import './Css/PokemonList.css';
+import { useState } from 'react';
 
 const Pokedex = ({ pokedex, removeFromPokedex, clearPokedex }) => {
+  
+  if(!localStorage.getItem('pokedex')) {
+    localStorage.setItem('pokedex', JSON.stringify([]));
+  }
+
+
   const [searchText, setSearchText] = useState(''); // État pour la valeur de recherche
 
   // Fonction de recherche pour filtrer les Pokémon par nom ou ID

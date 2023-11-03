@@ -34,7 +34,7 @@ const PokemonList = ({ addToPokedex }) => {
   useEffect(() => {
     const fetchPokemonList = async () => {
       try {
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=15000');
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=1100');
         const data = await response.json();
         setPokemonList(data.results);
       } catch (error) {
@@ -68,10 +68,14 @@ const PokemonList = ({ addToPokedex }) => {
       return sortOrder === 'asc'
         ? getPokemonIdFromUrl(a.url) - getPokemonIdFromUrl(b.url)
         : getPokemonIdFromUrl(b.url) - getPokemonIdFromUrl(a.url);
-    } else if (sortBy === 'type') {
-      const typeA = a.types[0].type.name;
-      const typeB = b.types[0].type.name;
-      return sortOrder === 'asc' ? typeA.localeCompare(typeB) : typeB.localeCompare(typeA);
+    // } else if (sortBy === 'type') {
+    //   const typeA = a.types[0].type.name;
+    //   const typeB = b.types[0].type.name;
+    //   return sortOrder === 'asc' ? typeA.localeCompare(typeB) : typeB.localeCompare(typeA);
+    } else if (sortBy === 'name') {
+      const nameA = a.name;
+      const nameB = b.name;
+      return sortOrder === 'asc' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
     }
   };
 
@@ -100,7 +104,7 @@ const PokemonList = ({ addToPokedex }) => {
           Trier par :
           <select onChange={(e) => setSortBy(e.target.value)}>
             <option value="id">ID</option>
-            <option value="type">Type</option>
+            <option value="name">Nom</option>
           </select>
         </label>
         <label>
@@ -116,7 +120,7 @@ const PokemonList = ({ addToPokedex }) => {
           .filter((pokemon) => searchPokemon(pokemon))
           .sort(sortPokemon)
           .map((pokemon, index) => (
-            <li key={index}>
+            <p key={index}>
               <img
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getPokemonIdFromUrl(pokemon.url)}.png`}
                 alt={pokemon.name}
@@ -126,7 +130,7 @@ const PokemonList = ({ addToPokedex }) => {
                 Ajouter au Pokédex
               </button>
               <button onClick={() => handleShowStats(pokemon.url)}>Voir les statistiques</button>
-            </li>
+            </p>
           ))}
       </ul>
       {pokemonToShowStats && <PokemonStats statsUrl={pokemonToShowStats} />}

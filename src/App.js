@@ -24,17 +24,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/pokemon-list">Liste Pokémons</Link>
-            </li>
-            <li>
-              <Link to="/pokedex">Mon Pokédex</Link>
-            </li>
-          </ul>
-        </nav>
-
+        <ul>
+          <Link to="/pokemon-list">Liste Pokémons</Link> */}
+          <Link to="/pokedex">Mon Pokédex</Link>
+        </ul>
+            
         <Routes>
           <Route path="/" element={<HomePage />} /> {/* Nouvelle route pour la page d'accueil */}
           <Route
