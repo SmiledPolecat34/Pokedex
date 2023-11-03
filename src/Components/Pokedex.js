@@ -1,6 +1,6 @@
 import React from 'react';
 import './Css/PokemonList.css';
-
+import { useState } from 'react';
 const Pokedex = ({ pokedex, removeFromPokedex, clearPokedex }) => {
   
   if(!localStorage.getItem('pokedex')) {
