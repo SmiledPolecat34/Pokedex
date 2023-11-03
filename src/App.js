@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 import PokemonList from './Components/PokemonList';
 import Pokedex from './Components/Pokedex';
+import HomePage from './Components/HomePage';
 
 function App() {
   const [pokedex, setPokedex] = useState([]);
@@ -12,7 +13,8 @@ function App() {
   };
 
   const removeFromPokedex = (pokemon) => {
-    setPokedex(pokedex.filter((p) => p !== pokemon));
+    const updatedPokedex = pokedex.filter((p) => p.id !== pokemon.id);
+    setPokedex(updatedPokedex);
   };
 
   const clearPokedex = () => {
@@ -24,16 +26,17 @@ function App() {
       <Router>
         <nav>
           <ul>
-            <>
+            <li>
               <Link to="/pokemon-list">Liste Pokémons</Link>
-            </>
-            <>
+            </li>
+            <li>
               <Link to="/pokedex">Mon Pokédex</Link>
-            </>
+            </li>
           </ul>
         </nav>
 
         <Routes>
+          <Route path="/" element={<HomePage />} /> {/* Nouvelle route pour la page d'accueil */}
           <Route
             path="/pokemon-list"
             element={<PokemonList addToPokedex={addToPokedex} />}

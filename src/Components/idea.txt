@@ -1,19 +1,15 @@
-1. Id 
 1. Id 👍
 
-2. types
+2. types 👍
 
 2bis. localStorage
 
 3. Stats Pokemon sur clic
 
-4. Trier l'affichage des pokemons par liste
-4. Trier l'affichage des pokemons par type/id (croissant, décroissant)
+4. Trier l'affichage des pokemons par type/id (croissant, décroissant) 👍
 
-5. Barre de recherche par nom et par id
+5. Barre de recherche par nom et par id 👍
 
-5. Barre de recherche par nom
-6. Page d'accueil
+6. Page d'accueil 👍
 
-Facultatif : 6. toDo List of capture
 Facultatif : 7. toDo List of capture
