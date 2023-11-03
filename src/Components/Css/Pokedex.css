@@ -39,24 +39,34 @@ h1 {
   
   /* Style pour les boutons Ajouter au Pokédex et Voir les statistiques */
   
-  .liberer{
-    width: 100px;
-    height: 100px;
-    background-image: url("pokeball_Image.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    color:#45a04900;
-    background-color: #45a04900;
-    transition: transform 2s ease;
-  }
-  
-  .liberer:hover{
-    transform: rotate(160deg);
-    transition: 2s;
-    transform: rotate(-60deg);
-    background-image: url("pokeball_Ouverte_Image.png");
-    scale: 120%;
-  }
+.liberer-container {
+  width: 100px;
+  height: 100px;
+  overflow: hidden; /* Masque le dépassement de contenu du bouton */
+}
+
+.liberer {
+  width: 100px;
+  height: 100px;
+  background-image: url("pokeball_Image.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color: #45a04900;
+  background-color: #45a04900;
+  transition: transform 1.5s ease-in-out, background-image 1.5s ease-in-out, scale 1.5s ease-in-out;
+}
+
+.liberer-container:hover .liberer {
+  transform: rotate(160deg); /* Rotation initiale */
+  background-image: url("pokeball_Ouverte_Image.png"); /* Changement de l'image */
+  scale: 1.2; /* Mise à l'échelle */
+}
+
+.liberer-container:hover .liberer:hover {
+  transform: rotate(-20deg); /* Rotation retour */
+  margin-top: -1px;
+}
+
   /* Pokedex.css */
   
   /* Style pour le conteneur principal */
@@ -64,15 +74,18 @@ h1 {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
+    color: rgb(123, 0, 255);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
   }
   
   /* Style pour l'en-tête */
   .header{
-    background-color: #ff0000; /* Rouge */
+    /* background-color: #ff0000; Rouge */
     padding: 10px 0;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
   }
   
   /* Style pour la barre de recherche */
@@ -92,6 +105,11 @@ h1 {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
+    background-color:#ffcc01c3;
+  }
+
+  li:hover{
+    scale: 120%;
   }
   
   /* Style pour l'image du Pokémon dans le Pokédex */
@@ -170,4 +188,14 @@ h1 {
     text-align: center;
     margin: 10px;
     flex: 0 0 18%; /* 18% width for each Pokemon card to fit 5 cards in a row */
+  }
+
+  a{
+    text-decoration: none;
+    color: #ff0000;
+  }
+
+  a:hover{
+    color: darkblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }

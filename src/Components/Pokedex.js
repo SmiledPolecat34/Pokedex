@@ -37,7 +37,9 @@ const Pokedex = ({ pokedex, removeFromPokedex, clearPokedex }) => {
             <li key={index}>
               <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} alt={pokemon.name} />
               {pokemon.name} - Type(s): {pokemon.types.join(', ')}
+              <div class="liberer-container">
               <button className="liberer" onClick={() => removeFromPokedex(pokemon)}>Libérer</button>
+</div>
             </li>
           ))}
       </ul>

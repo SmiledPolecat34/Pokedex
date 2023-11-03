@@ -16,23 +16,6 @@ const PokemonList = ({ addToPokedex }) => {
     
   };
 
-  const handleShowStats = async (pokemonUrl) => {
-    try {
-      // Construisez l'URL pour obtenir les statistiques
-      const statsUrl = `https://pokeapi.co/api/v2/pokemon/${getPokemonIdFromUrl(pokemonUrl)}`;
-
-      // Utilisez l'URL pour obtenir les statistiques
-      const statsResponse = await fetch(statsUrl);
-      const statsData = await statsResponse.json();
-
-      console.log(statsData); // Vous pouvez accéder aux statistiques ici
-
-      setPokemonToShowStats(statsData);
-    } catch (error) {
-      console.error('Error fetching Pokemon stats:', error);
-    }
-  };
-
   useEffect(() => {
     const fetchPokemonList = async () => {
       try {
