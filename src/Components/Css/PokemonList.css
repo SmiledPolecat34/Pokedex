@@ -1,52 +1,146 @@
 body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+label {
+  margin: 0 15px;
+  font-size: 16px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff; /* Couleur de fond */
-  }
+    background-color: #ffffff;  
+  } 
   
   .header {
-    background-color: #10244c;
+     background-color: #10244c;
     color: #ffffff;
     padding: 10px 0;
     text-align: center;
-    font-size: 24px;
+    font-size: 24px; 
   }
   
   .pokedex-container {
-    display: flex;
+     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 20px;
+    margin: 20px; 
   }
   
   .pokemon-card {
-    background-color: #fff;
+     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 10px;
     padding: 20px;
     text-align: center;
-    width: 200px;
+    width: 200px; 
   }
   
   .pokemon-image {
-    max-width: 100px;
-    margin-bottom: 10px;
+     max-width: 100px;
+    margin-bottom: 10px; 
   }
   
   .button {
-    background-color: #ff0000; /* Rouge pour le bouton */
-    border: none;
+     background-color: #ff0000; 
+     border: none;
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
     font-size: 14px;
     padding: 8px 16px;
     transition: background-color 0.3s ease;
-    margin-top: auto;
+    margin-top: auto; 
   }
   
   .button:hover {
-    background-color: #cc0000; /* Rouge légèrement plus sombre au survol */
-  }
+     background-color: #cc0000; 
+  } */

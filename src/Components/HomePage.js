@@ -11,9 +11,8 @@ const HomePage = () => {
         {/* <h1>Bienvenue dans le Monde Pokémon</h1> */}
       </div>
       <div className="content">
-  <p>Partez à l'aventure, capturez des Pokémon, combattez des dresseurs et devenez le meilleur dresseur de tous les temps !</p>
   <Link to="/pokemon-list"> {/* Lien vers la liste de Pokémon */}
-    <button>Commencer l'aventure</button>
+    <button>Commencer l'aventure !</button>
   </Link>
 </div>
 
