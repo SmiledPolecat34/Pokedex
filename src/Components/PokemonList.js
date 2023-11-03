@@ -93,8 +93,9 @@ const PokemonList = ({ addToPokedex }) => {
   };
 
   return (
-    <div>
-      <h1>Liste de Pokémons</h1>
+    <div className='FontOfAll'>
+    <div className='FontOfAllImg'></div>
+      {/* <h1>Liste de Pokémons</h1> */}
       <div className="search-bar">
         <input
           type="text"
@@ -118,21 +119,26 @@ const PokemonList = ({ addToPokedex }) => {
           </select>
         </label>
       </div>
-      <ul>
+      <ul className='fontOfAllCards'>
         {pokemonList
           .filter((pokemon) => searchPokemon(pokemon))
           .sort(sortPokemon)
           .map((pokemon, index) => (
-            <p key={index}>
+            <p key={index} className='fontOfCards'>
               <img
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getPokemonIdFromUrl(pokemon.url)}.png`}
+                // src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${getPokemonIdFromUrl(pokemon.url)}.svg`}
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${getPokemonIdFromUrl(pokemon.url)}.png`}
                 alt={pokemon.name}
-              />
+                />
+                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getPokemonIdFromUrl(pokemon.url)}.png`}/>
+              
               {pokemon.name} (n°{getPokemonIdFromUrl(pokemon.url)}) -
-              <button onClick={() => handleAddToPokedex(pokemon.url)}>
-                Ajouter au Pokédex
+              <div class="buttonContainer">
+
+              <button className="buttonAdd" onClick={() => handleAddToPokedex(pokemon.url)}>
+                {/* Ajouter au Pokédex */}
               </button>
-              <button onClick={() => handleShowStats(pokemon.url)}>Voir les statistiques</button>
+              </div>
             </p>
           ))}
       </ul>

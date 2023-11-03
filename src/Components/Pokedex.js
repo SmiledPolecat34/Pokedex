@@ -1,5 +1,5 @@
 import React from 'react';
-import './Css/PokemonList.css';
+import './Css/Pokedex.css';
 import { useState } from 'react';
 const Pokedex = ({ pokedex, removeFromPokedex, clearPokedex }) => {
   
@@ -37,7 +37,7 @@ const Pokedex = ({ pokedex, removeFromPokedex, clearPokedex }) => {
             <li key={index}>
               <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} alt={pokemon.name} />
               {pokemon.name} - Type(s): {pokemon.types.join(', ')}
-              <button onClick={() => removeFromPokedex(pokemon)}>Libérer</button>
+              <button className="liberer" onClick={() => removeFromPokedex(pokemon)}>Libérer</button>
             </li>
           ))}
       </ul>
