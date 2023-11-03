@@ -1,6 +1,7 @@
 body {
   background-image: url('pokemon2.jpg');
-
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 
@@ -15,8 +16,25 @@ body {
     text-align: center;
     padding: 50px;
     font-family: 'Arial', sans-serif;
-    /* background-color: #ff9900; */
+  }
+  
+  .textAccueil{
+    overflow: hidden;
+    display: flex;
+    position: relative;
+  }
+  
+  .imageAccueil{
+    
     background-image: url('pokemon3.png');
+    background-repeat: no-repeat; 
+    /* padding-left: %; */
+    width: 100%;
+    height: 120px;
+    display: flex;
+    position: absolute;
+    
+    margin-left: 500px;
   }
   
   .header {
