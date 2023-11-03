@@ -26,12 +26,12 @@ function App() {
       <Router>
         <nav>
           <ul>
-            <>
+            <li>
               <Link to="/pokemon-list">Liste Pokémons</Link>
-            </>
-            <>
+            </li>
+            <li>
               <Link to="/pokedex">Mon Pokédex</Link>
-            </>
+            </li>
           </ul>
         </nav>
 
