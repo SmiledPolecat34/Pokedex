@@ -116,7 +116,7 @@ const PokemonList = ({ addToPokedex }) => {
           .filter((pokemon) => searchPokemon(pokemon))
           .sort(sortPokemon)
           .map((pokemon, index) => (
-            <li key={index}>
+            <p key={index}>
               <img
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getPokemonIdFromUrl(pokemon.url)}.png`}
                 alt={pokemon.name}
@@ -126,7 +126,7 @@ const PokemonList = ({ addToPokedex }) => {
                 Ajouter au Pokédex
               </button>
               <button onClick={() => handleShowStats(pokemon.url)}>Voir les statistiques</button>
-            </li>
+            </p>
           ))}
       </ul>
       {pokemonToShowStats && <PokemonStats statsUrl={pokemonToShowStats} />}

@@ -1,5 +1,6 @@
 import React from 'react';
-import 'PokemonList.css'
+import './Css/PokemonList.css'
+import { useState } from 'react';
 const Pokedex = ({ pokedex, removeFromPokedex, clearPokedex }) => {
   const [searchText, setSearchText] = useState(''); // État pour la valeur de recherche
 
