@@ -1,3 +1,13 @@
+body {
+  background-image: url('pokemon2.jpg');
+
+}
+
+
+ h1 {
+  color: #fccc04;
+ }
+
 .home-page {
     /* background-image: url('pokemon-background.jpg'); Utilisez une image Pokémon en arrière-plan */
     background-size: cover;
@@ -5,11 +15,15 @@
     text-align: center;
     padding: 50px;
     font-family: 'Arial', sans-serif;
+    /* background-color: #ff9900; */
+    background-image: url('pokemon3.png');
   }
   
   .header {
     font-size: 2rem;
-    text-shadow: 2px 2px 4px #000;
+    text-shadow: 2px 2px 4px #3d5dab;
+    background-color: #fcca0400;
+    
   }
   
   .content {
@@ -31,4 +45,7 @@
   button:hover {
     background-color: #ff9900; /* Couleur Pikachu au survol */
   }
-  
+
+ .containerImage{
+
+ }
