@@ -1,21 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Css/PokemonList.css';
-
+import PokemonStats from './PokemonStats';
 
 const PokemonList = ({ addToPokedex }) => {
   const [pokemonList, setPokemonList] = useState([]);
-  const [nextPage, setNextPage] = useState('https://pokeapi.co/api/v2/pokemon/');
+  const [searchText, setSearchText] = useState('');
+  const [sortBy, setSortBy] = useState('id');
+  const [sortOrder, setSortOrder] = useState('asc');
+  const [pokemonToShowStats, setPokemonToShowStats] = useState(null);
 
-  const fetchPokemonList = async () => {
+  const getPokemonIdFromUrl = (url) => {
+    const parts = url.split('/');
+    return parts[parts.length - 2];
+  };
+
+  const handleShowStats = async (pokemonUrl) => {
     try {
-      const response = await fetch(nextPage);
-      const data = await response.json();
-      setPokemonList((prevList) => [...prevList, ...data.results]);
-      setNextPage(data.next);
+      // Construisez l'URL pour obtenir les statistiques
+      const statsUrl = `https://pokeapi.co/api/v2/pokemon/${getPokemonIdFromUrl(pokemonUrl)}`;
+
+      // Utilisez l'URL pour obtenir les statistiques
+      const statsResponse = await fetch(statsUrl);
+      const statsData = await statsResponse.json();
+
+      console.log(statsData); // Vous pouvez accéder aux statistiques ici
+
+      setPokemonToShowStats(statsData);
     } catch (error) {
-      console.error('Error fetching Pokemon list:', error);
+      console.error('Error fetching Pokemon stats:', error);
     }
   };
+
+  useEffect(() => {
+    const fetchPokemonList = async () => {
+      try {
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=15000');
+        const data = await response.json();
+        setPokemonList(data.results);
+      } catch (error) {
+        console.error('Error fetching Pokemon list:', error);
+      }
+    };
+
+    fetchPokemonList();
+  }, []);
 
   const fetchPokemonDetails = async (url) => {
     try {
@@ -28,49 +56,80 @@ const PokemonList = ({ addToPokedex }) => {
     }
   };
 
-  const getPokemonIdFromUrl = (url) => {
-    const parts = url.split('/');
-    return parts[parts.length - 2];
+  const searchPokemon = (pokemon) => {
+    return (
+      pokemon.name.toLowerCase().includes(searchText.toLowerCase()) ||
+      pokemon.url.includes(searchText)
+    );
+  };
+
+  const sortPokemon = (a, b) => {
+    if (sortBy === 'id') {
+      return sortOrder === 'asc'
+        ? getPokemonIdFromUrl(a.url) - getPokemonIdFromUrl(b.url)
+        : getPokemonIdFromUrl(b.url) - getPokemonIdFromUrl(a.url);
+    } else if (sortBy === 'type') {
+      const typeA = a.types[0].type.name;
+      const typeB = b.types[0].type.name;
+      return sortOrder === 'asc' ? typeA.localeCompare(typeB) : typeB.localeCompare(typeA);
+    }
   };
 
   const handleAddToPokedex = async (pokemonUrl) => {
     const pokemonDetails = await fetchPokemonDetails(pokemonUrl);
     if (pokemonDetails) {
-      
       const types = pokemonDetails.types.map((typeData) => typeData.type.name);
       pokemonDetails.types = types;
-
       addToPokedex(pokemonDetails);
       let message = `${pokemonDetails.name} ${types} a bien été ajouté au Pokédex !`;
       alert(message);
     }
   };
 
-  const loadMorePokemon = () => {
-    fetchPokemonList();
-  };
-
   return (
     <div>
       <h1>Liste de Pokémons</h1>
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Rechercher par nom ou ID"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        <label>
+          Trier par :
+          <select onChange={(e) => setSortBy(e.target.value)}>
+            <option value="id">ID</option>
+            <option value="type">Type</option>
+          </select>
+        </label>
+        <label>
+          Ordre :
+          <select onChange={(e) => setSortOrder(e.target.value)}>
+            <option value="asc">Ascendant</option>
+            <option value="desc">Descendant</option>
+          </select>
+        </label>
+      </div>
       <ul>
-        {pokemonList.map((pokemon, index) => (
-          <li key={index}>
-            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getPokemonIdFromUrl(pokemon.url)}.png`} alt={pokemon.name} />
-            {pokemon.name} (n°{getPokemonIdFromUrl(pokemon.url)}) -
-            {/* code de la Var du Type du Pokemon */}
-            (type(s)) {pokemon.types} - 
-            
-
-            <button onClick={() => handleAddToPokedex(pokemon.url)}>
-              Ajouter au Pokédex
-            </button>
-          </li>
-        ))}
+        {pokemonList
+          .filter((pokemon) => searchPokemon(pokemon))
+          .sort(sortPokemon)
+          .map((pokemon, index) => (
+            <li key={index}>
+              <img
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getPokemonIdFromUrl(pokemon.url)}.png`}
+                alt={pokemon.name}
+              />
+              {pokemon.name} (n°{getPokemonIdFromUrl(pokemon.url)}) -
+              <button onClick={() => handleAddToPokedex(pokemon.url)}>
+                Ajouter au Pokédex
+              </button>
+              <button onClick={() => handleShowStats(pokemon.url)}>Voir les statistiques</button>
+            </li>
+          ))}
       </ul>
-      {nextPage && (
-        <button onClick={loadMorePokemon}>Page suivante</button>
-      )}
+      {pokemonToShowStats && <PokemonStats statsUrl={pokemonToShowStats} />}
     </div>
   );
 };
