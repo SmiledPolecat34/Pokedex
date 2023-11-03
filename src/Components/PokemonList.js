@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Css/PokemonList.css';
 
+
 const PokemonList = ({ addToPokedex }) => {
   const [pokemonList, setPokemonList] = useState([]);
   const [nextPage, setNextPage] = useState('https://pokeapi.co/api/v2/pokemon/');
-  const [selectedPokemonDetails, setSelectedPokemonDetails] = useState(null);
 
   const fetchPokemonList = async () => {
     try {
@@ -30,14 +30,19 @@ const PokemonList = ({ addToPokedex }) => {
 
   const getPokemonIdFromUrl = (url) => {
     const parts = url.split('/');
-    return parts[parts.length - 2]; // The ID is the second-to-last part in the URL.
+    return parts[parts.length - 2];
   };
 
   const handleAddToPokedex = async (pokemonUrl) => {
     const pokemonDetails = await fetchPokemonDetails(pokemonUrl);
     if (pokemonDetails) {
+      
+      const types = pokemonDetails.types.map((typeData) => typeData.type.name);
+      pokemonDetails.types = types;
+
       addToPokedex(pokemonDetails);
-      alert("Le Pokémon a bien été ajouté au Pokédex");
+      let message = `${pokemonDetails.name} ${types} a bien été ajouté au Pokédex !`;
+      alert(message);
     }
   };
 
@@ -52,11 +57,12 @@ const PokemonList = ({ addToPokedex }) => {
         {pokemonList.map((pokemon, index) => (
           <li key={index}>
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getPokemonIdFromUrl(pokemon.url)}.png`} alt={pokemon.name} />
-            {pokemon.name} (n°{getPokemonIdFromUrl(pokemon.url)}) - 
-            <button onClick={async () => {
-              const details = await fetchPokemonDetails(pokemon.url);
-              handleAddToPokedex(pokemon.url);
-            }}>
+            {pokemon.name} (n°{getPokemonIdFromUrl(pokemon.url)}) -
+            {/* code de la Var du Type du Pokemon */}
+            (type(s)) {pokemon.types} - 
+            
+
+            <button onClick={() => handleAddToPokedex(pokemon.url)}>
               Ajouter au Pokédex
             </button>
           </li>

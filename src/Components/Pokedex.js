@@ -1,5 +1,5 @@
 import React from 'react';
-import './Css/PokemonList.css'
+import 'PokemonList.css'
 const Pokedex = ({ pokedex, removeFromPokedex, clearPokedex }) => {
   return (
     <div className="container">
