@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Css/PokemonList.css';
 
 const Pokedex = ({ pokedex, removeFromPokedex, clearPokedex }) => {
